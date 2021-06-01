@@ -8,11 +8,11 @@ import { Provider } from "react-redux";
 import {store} from './Store/Store'
 import axios from 'axios';
 import dotenv from 'dotenv'
-const {BACKEND}= process.env
+const {BACKEND, BACK_PORT}= process.env
 dotenv.config()
 console.log(BACKEND)
 
-axios.defaults.baseURL = process.env.BACKEND
+axios.defaults.baseURL = process.env.BACKEND 
 
 ReactDOM.render(
   <Provider store= {store}>

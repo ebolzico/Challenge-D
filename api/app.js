@@ -33,13 +33,13 @@ mongoose.connect(CONNECTION_STRING, {
 })
 .then(()=>{
     console.log('Database conection ready')
-//  filldb() Only to be used once, this fills the db with the user examples
+filldb() // Only to be used once, this fills the db with the user examples
 })
 .catch((err)=>{
     console.log(err)
 })
 
 
-app.listen (3002, ()=>{  
+app.listen (BACKEND_PORT, ()=>{  
     console.log (`listening on ${BACKEND_PORT}`)
 })
