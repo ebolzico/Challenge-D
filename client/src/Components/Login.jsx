@@ -14,7 +14,7 @@ export default function Login() {
 
     function handleChange(e){
         if (e.target.name === 'email'){
-            e.target.value.includes('@' && '.com') ? setValidateEmail(true) : setValidateEmail(false)    
+            /\S+@\S+\.\S+/.test(e.target.value) ? setValidateEmail(true) : setValidateEmail(false)    
         } 
         setUserData({
             ...userData,
