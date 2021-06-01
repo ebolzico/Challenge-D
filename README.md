@@ -6,6 +6,7 @@
 ```js
 BACKEND_PORT= the port you run it
 CONNECTION_STRING= your mongo connection string
+USERNAME= yourMongoDbUsername
 PASSWORD= yourMongoDbPassword
 secret= yourSecret
 ```
