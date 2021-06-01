@@ -13,21 +13,16 @@ export function tokenRequest(userData){
             }
             dispatch({type: 'TOKEN_REQUEST', payload: response.data})
         }
-        catch(error){console.log(error)}
+        catch(error){alert('Wrong user or password')}
     }
 }
 
 
 
-export function getUserInfo(token){
+export function getUserInfo(){
     return async (dispatch) => {
         try{
-            /* const config = {
-                headers:{
-                    'Authorization': `Bearer ${token}`
-                }
-            } */
-            //let response= await axios.get('http://localhost:3002/api/v0/users/me', config)
+            const token= localStorage.getItem('token')
             const response= await axios({
                 method: 'get',
                 url: 'http://localhost:3002/api/v0/users/me',
