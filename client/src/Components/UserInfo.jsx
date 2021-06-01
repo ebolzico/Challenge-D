@@ -20,16 +20,16 @@ export default function UserInfo() {
 
     return (
         <div className={style.container}>
-            <img src={userInfo.avatar}/>
-            <ul>
+            <ul className={style.info}>
+                <img src={userInfo.avatar}/>
                 <li>Name: {userInfo.name}</li>
                 <li>Surname: {userInfo.surname}</li>
                 <li>Age: {userInfo.age}</li>
                 <li>E-mail: {userInfo.email}</li>
                 <li>Role: {userInfo.role}</li>
                 <li>Id: {userInfo.id}</li>
+                <button onClick={handleClick}>Log Out</button>
             </ul>
-            <button onClick={handleClick}>Log Out</button>
         </div>
     )
 }
