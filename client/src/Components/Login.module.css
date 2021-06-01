@@ -1,0 +1,47 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.inputs{
+    margin: 0.5vh;
+}
+
+.validEmail{
+    border-color: lightgreen;
+    outline: none;
+    margin: 0.5vh;
+    border-radius: 1vh;
+}
+
+.validPassword{
+    display: flex;
+    outline: none;
+    margin: 0.5vh;
+    border-radius: 1vh;
+}
+
+.emailNotValid{
+    border-color: red;
+    outline: none;
+    margin: 0.5vh;
+    border-radius: 1vh;
+}
+
+.send{
+    background-color: white;
+    color: black;
+    border-radius: 1vh;
+    transition: ease 0.3s;
+}
+
+.send:hover{
+    background-color: green;
+    color: white;
+}

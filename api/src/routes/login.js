@@ -7,12 +7,15 @@ async function authenticate(req, res){
         email: req.body.email,
         password: req.body.password
     }
+    console.log(user)
     try {
         let hash= bcrypt.hashSync(user.password, saltRounds)
-        let userToCompare= await User.findOne({email: user.email, password: user.password})
+        let userToCompare= await User.findOne({email: user.email})
         if (bcrypt.compareSync(userToCompare.password, hash)){
             // Generar token y pasar
             res.json('Paso')
+        } else {
+            res.status(404).json('The username or password does not exist')
         }
     }
     catch(error){console.log(error)}
