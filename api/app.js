@@ -1,11 +1,11 @@
 require('dotenv').config()
-const { BACKEND_PORT, PASSWORD, CONNECTION_STRING }= process.env
+const { BACKEND_PORT, PASSWORD, CONNECTION_STRING, USERNAME }= process.env
 const mongoose= require('mongoose')
 const cors= require('cors')
 const app= require('express')()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-const filldb= require('./dbSeed')
+const {seed}= require('./dbSeed')
 const authJwt= require('./src/helpers/authJWT')
 
 
@@ -28,12 +28,12 @@ mongoose.connect(CONNECTION_STRING, {
     useNewUrlParser:true,
     useUnifiedTopology: true,
     dbName: 'login2',
-    user: 'bolzicoemanuel',
+    user: USERNAME,
     pass: PASSWORD
 })
 .then(()=>{
     console.log('Database conection ready')
-    filldb() // Only to be used once, this fills the db with the user examples
+    seed() // Only to be used once, this fills the db with the user examples
 })
 .catch((err)=>{
     console.log(err)

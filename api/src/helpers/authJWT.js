@@ -2,10 +2,10 @@ const { BACKEND_PORT, PASSWORD, CONNECTION_STRING, secret }= process.env
 const jwt= require('jsonwebtoken')
 // npm install express-jwt
 
-async function authJwt(req, _, next){
+async function authJwt(req, res, next){
     try{
         const token= req.header('Authorization').replace('Bearer ', '')
-        console.log(token, secret, 'aut')
+        if (!token){return res.status(401).send('No authorization token')}
         const {email} = jwt.verify(token, secret)
         req.email=email
         next()

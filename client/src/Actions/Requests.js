@@ -33,6 +33,9 @@ export function getUserInfo(){
             })
             dispatch({type: 'USER_INFO', payload: response.data})
         }
-        catch(error){}
+        catch(error){
+            alert('No authorization token')
+            window.location.href = '/';
+        }
     }
 }

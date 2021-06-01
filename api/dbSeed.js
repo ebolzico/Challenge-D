@@ -22,6 +22,8 @@ const start=[{
 
 function seed(){
     start.forEach(user => {
-        User.create({user})
+        User.create(user)
     })
 }
+
+module.exports={seed}
