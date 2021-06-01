@@ -1,11 +1,10 @@
 const {User} = require("../models/User")
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
 
-async function authenticate(req, res){
+
+async function userInfo(req, res){
     
 }
 
 module.exports= {
-    authenticate
+    userInfo
 }

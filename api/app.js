@@ -7,10 +7,9 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const filldb= require('./dbSeed')
 
-//ENABLE CORS BEFORE ANYTHING
+
 app.use(cors())
-//ALLOWING ALL HTTP REQUEST  with *
-app.options('*', cors())
+
 
 // Models
 // const User = require('./src/models/User')
@@ -33,7 +32,7 @@ mongoose.connect(CONNECTION_STRING, {
 })
 .then(()=>{
     console.log('Database conection ready')
-    filldb()
+//  filldb() Only to be used once, this fills the db with the user examples
 })
 .catch((err)=>{
     console.log(err)
