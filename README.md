@@ -2,17 +2,21 @@
 
 ### Instructions to run it:
 1st: npm install, both api and client 
-2nd: 
-  In the api .env: 
-      BACKEND_PORT= the port you run it
-      CONNECTION_STRING= your mongo connection string
-      PASSWORD= yourMongoDbPassword
-      secret= yourSecret
-      
-  In the client .env:
-      BACKEND= your local host
-      
-  In the "proxy" property of the client json= your local host
+2nd: In the api .env: 
+```js
+BACKEND_PORT= the port you run it
+CONNECTION_STRING= your mongo connection string
+PASSWORD= yourMongoDbPassword
+secret= yourSecret
+```
+In the client .env:
+```js
+BACKEND= your local host
+```
+In the "proxy" property of the client json= your local host:
+```js
+"proxy":"your local host"
+```
   
 3rd: npm start both api and client
 
