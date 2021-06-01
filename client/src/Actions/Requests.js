@@ -5,7 +5,7 @@ export function tokenRequest(userData){
         try {
             let response= await axios({
                 method: 'post',
-                url: 'http://localhost:3002/api/v0/authenticate',
+                url: `/api/v0/authenticate`,
                 data: userData
             })
             if (response.data){
@@ -25,7 +25,7 @@ export function getUserInfo(){
             const token= localStorage.getItem('token')
             const response= await axios({
                 method: 'get',
-                url: 'http://localhost:3002/api/v0/users/me',
+                url: `/api/v0/users/me`,
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
