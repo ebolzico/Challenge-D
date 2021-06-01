@@ -9,7 +9,7 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/direccion', funcionQueNecesitoUsar);
 
-router.get('/api/v0/authenticate', authenticate)
-router.post('/api/v0/users/me', userInfo)
+router.post('/api/v0/authenticate', authenticate)
+router.get('/api/v0/users/me', userInfo)
 
 module.exports = router;

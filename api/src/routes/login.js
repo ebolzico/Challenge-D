@@ -10,9 +10,9 @@ async function authenticate(req, res){
     try {
         let hash= bcrypt.hashSync(user.password, saltRounds)
         let userToCompare= await User.findOne({email: user.email, password: user.password})
-        let hashToCompare= bcrypt.hashSync(userToCompare.password, saltRounds)
-        if (hash === hashToCompare){
-            // Genero el token y lo mando
+        if (bcrypt.compareSync(userToCompare.password, hash)){
+            // Generar token y pasar
+            res.json('Paso')
         }
     }
     catch(error){console.log(error)}
