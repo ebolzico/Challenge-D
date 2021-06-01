@@ -4,7 +4,7 @@ const { BACKEND_PORT, PASSWORD, CONNECTION_STRING, secret }= process.env
 const jwt= require('jsonwebtoken')
 // npm install express-jwt
 
-async function authJwt(req, res){
+async function authJwt(req, _, next){
     try{
         const token= req.header('Authorization').replace('Bearer ', '')
         console.log(token, secret, 'aut')
@@ -15,7 +15,7 @@ async function authJwt(req, res){
         req.email=email
         next()
     }
-    catch(_){res.status(401).send({ error: 'Unauthorized' })}
+    catch(error){console.log(error)/* res.status(401).send({ error: 'Unauthorized' }) */}
 }
 
 module.exports = authJwt;

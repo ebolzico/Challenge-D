@@ -36,7 +36,6 @@ export function getUserInfo(token){
                 }
                 
             })
-            console.log(response.data)
             dispatch({type: 'USER_INFO', payload: response.data})
         }
         catch(error){}
