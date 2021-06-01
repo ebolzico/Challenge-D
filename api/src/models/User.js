@@ -1,28 +1,37 @@
 const mongoose= require('mongoose')
 
 const userSchema= mongoose.Schema({
-    username: {
+    name: {
         type: String,
         required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+    avatar: {
+        type: String,
+        required: false
     },
     email: {
         type: String,
         required: true
     },
-    hashedPass: {
+    password: {
         type: String,
         required: true
     },
-    isAdmin: {
-        type: Boolean,
+    role: {
+        type: String,
         required: true
     }
 })
 
-//Create a VIRTUAL id in stead of _id
-userSchema.virtual('id').get(function(){
-    return this._id.toHexString();
-})
+
 
 userSchema.set('toJSON',{
 virtuals:true,
