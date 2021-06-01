@@ -6,6 +6,7 @@ const app= require('express')()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const filldb= require('./dbSeed')
+const authJwt= require('./src/helpers/authJWT')
 
 
 app.use(cors())

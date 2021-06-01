@@ -1,28 +1,21 @@
 const expressJwt = require('express-jwt')
-
+const { User } = require('../models/User')
+const { BACKEND_PORT, PASSWORD, CONNECTION_STRING, secret }= process.env
+const jwt= require('jsonwebtoken')
 // npm install express-jwt
 
-function authJwt (){
-    const secret = process.env.secret;
-    const api = process.env.API
-    return expressJwt({
-        secret,
-        algorithms:['HS256'],
-        isRevoked: isRevoked
-    }).unless({
-        path:[
-            {url: 'http://localhost:3002/user', methods:['GET', 'POST']},
-        ]
-    })
-}
-
-
-//REJECT the token is not admin
-async function isRevoked (req, payload, done){
-    if(!payload.isAdmin){
-        return done(null, true)
+async function authJwt(req, res){
+    try{
+        const token= req.header('Authorization').replace('Bearer ', '')
+        console.log(token, secret, 'aut')
+        const {email} = jwt.verify(token, secret)
+        /* const user= await User.findOne({email: data.email})
+        if (!user){res.status(404).send({ error: 'Not found' })}
+        */
+        req.email=email
+        next()
     }
-    done();
+    catch(_){res.status(401).send({ error: 'Unauthorized' })}
 }
 
 module.exports = authJwt;

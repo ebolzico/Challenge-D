@@ -1,21 +1,32 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux';
+import style from './UserInfo.module.css'
+import { getUserInfo } from '../Actions/Requests';
 
 export default function UserInfo() {
     const history= useHistory()
     const [token, setToken]= useState(localStorage.getItem('token'))
+    const userinfo= useSelector(state => state.userInfo)
+    const dispatch= useDispatch()
 
     useEffect(() => {
-        // Chequeo el token con el back
-        if(token !== 'Paso'){
-            history.push('/')
-        }
+        dispatch(getUserInfo(token))
+        
     }, [])
 
     return (
-        <div>
-            UserInfo
+        <div /* className={style.container} */>
+            <img /* src={userInfo.avatar} *//>
+            <ul>
+                <li>Name: </li>
+                <li>Surname: </li>
+                <li>Age: </li>
+                <li>E-mail: </li>
+                <li>Role: </li>
+                <li>Id: </li>
+            </ul>
         </div>
     )
 }

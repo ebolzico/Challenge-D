@@ -41,12 +41,14 @@ export default function Login() {
             {
                 validateEmail ? 
                 <div className={style.inputs}>
+                    <h1>Login</h1>
                     <input className={style.validEmail} name= 'email' placeholder= 'email' onChange={handleChange}/>
                     <input className={style.validPassword} type='password' name= 'password' placeholder= 'password' onChange={handleChange}/>
                     <input type= 'submit' className={style.send}/>
                 </div>
                     :
                 <div className={style.inputs}>
+                    <h1>Login</h1>
                     <input className={style.emailNotValid} name= 'email' placeholder= 'email' onChange={handleChange}/>
                     <input type= 'submit' className={style.send}/>
                 </div>

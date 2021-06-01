@@ -8,12 +8,37 @@ export function tokenRequest(userData){
                 url: 'http://localhost:3002/api/v0/authenticate',
                 data: userData
             })
-            console.log(response.data)
             if (response.data){
                 localStorage.setItem('token', response.data)  
             }
             dispatch({type: 'TOKEN_REQUEST', payload: response.data})
         }
         catch(error){console.log(error)}
+    }
+}
+
+
+
+export function getUserInfo(token){
+    return async (dispatch) => {
+        try{
+            /* const config = {
+                headers:{
+                    'Authorization': `Bearer ${token}`
+                }
+            } */
+            //let response= await axios.get('http://localhost:3002/api/v0/users/me', config)
+            const response= await axios({
+                method: 'get',
+                url: 'http://localhost:3002/api/v0/users/me',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+                
+            })
+            console.log(response.data)
+            dispatch({type: 'USER_INFO', payload: response.data})
+        }
+        catch(error){}
     }
 }
